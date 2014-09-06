@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import appLogic.DiningHallScraper;
+
 /**
  * Servlet implementation class Example
  */
@@ -30,19 +32,16 @@ public class Example extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println(request.getParameter("date"));
-	    String message = "it works";
-	      
-	    // Actual logic goes here.
-	    PrintWriter out = response.getWriter();
-	    out.println("<h1>" + message + "</h1>");
+		  String date = request.getParameter("date");
+		  String location = request.getParameter("location");
+		  PrintWriter out = response.getWriter();
+		  if(date == null || location == null){
+			  out.print("Must pass in date and location parameter");
+		  }
+		  out.print(DiningHallScraper.LocationScrape(date, location));
+		  out.flush();
+		  out.close();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
 
 }

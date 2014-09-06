@@ -1,10 +1,13 @@
 // Import required java libraries
 import java.io.*;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import appLogic.DiningHallScraper;
+
 // Extend HttpServlet class
-public class HelloWorld extends HttpServlet {
+public class Listener extends HttpServlet {
  
   private String message;
 
@@ -16,15 +19,8 @@ public class HelloWorld extends HttpServlet {
 
   
   @Override
-  public void doGet(HttpServletRequest request,
-                    HttpServletResponse response)
-            throws ServletException, IOException
-  {
+  public void doGet(HttpServletRequest request,HttpServletResponse response) 
+		  throws ServletException, IOException{
 
-  }
-  
-  public void destroy()
-  {
-      // do nothing.
   }
 }
